@@ -7,3 +7,10 @@ Existing systems that facilitate early disease detection make use of either tech
 The web-application has been deployed using the Streamlit framework. Streamlit is a Python framework that makes it easy to create web applications for data science and machine learning projects. It facilitates the creation of interactive web apps with just a few lines of code, and it's designed to be intuitive and easy to use.
 
 Installation procedure for Streamlit-
+
+Streamlit can be installed using pip.
+
+                  pip install streamlit
+                  pip install streamlit-option-menu
+
+The above commands help install streamlit and streamlit-option-menu. Streamlit requires Python 3.6 or a higher version.

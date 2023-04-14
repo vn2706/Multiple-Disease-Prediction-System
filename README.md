@@ -42,3 +42,10 @@ The Spyder IDE has been utilized to write the code for the multiple disease pred
 
 
 **DEPLOYMENT**
+
+<p align="justify">There are two ways of deploying the Streamlit app. It can be deployed on a local machine or can be made public.
+Deployment using localhost is achieved using the Streamlit run command. 
+
+streamlit run "C:\Users\Krishna\Downloads\DISEASE\website.py" 
+
+The above command helps deploy the Streamlit web-app using the localhost.</p>

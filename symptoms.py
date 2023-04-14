@@ -277,7 +277,7 @@ if selected=='Home':
     st.info("Welcome to the Multiple Disease Prediction System! Our web-application provides you the oppurtunity to gain an understanding of your symptoms.\n Harness the potential of machine learning algorithms to avoid health issues!!!")
     st.write(hr ,unsafe_allow_html=True,)
     st.markdown("<br>", unsafe_allow_html=True)
-    st.subheader("USAGE")
+    st.header("USAGE")
     st.write("<div style='text-align:left; color:blue; font-size:20px;'>Using our web-app has 4 key steps. Expand each step to view.</div>", unsafe_allow_html=True)
     st.write("\n")
     steps = {
@@ -292,7 +292,7 @@ if selected=='Home':
             st.write(step_content,unsafe_allow_html=True)
     st.write(hr ,unsafe_allow_html=True)
     st.markdown("<br>", unsafe_allow_html=True)
-    st.subheader("ACCESS ANYWHERE!")
+    st.header("ACCESS ANYWHERE!")
     st.write("<div style='text-align:left; color:blue; font-size:20px;'>Access our web-app anywhere, anytime for better health-care & management!!!.</div>", unsafe_allow_html=True)
     image1 = cv2.imread('image3.jpeg')
     st.markdown("<br>", unsafe_allow_html=True)

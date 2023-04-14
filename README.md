@@ -39,7 +39,13 @@ The Spyder IDE has been utilized to write the code for the multiple disease pred
 
 **LIBRARIES**
 
-
+<p align="justify">
+The following libraries have been utilized: <br/>
+1. Numpy : For passing symptoms to the machine learning algorithms.<br/>
+2. Pandas: For accessing and working with the datasets.<br/>
+3. Streamlit: To develop the web-application. <br/>
+4. cv2: To render the images on our web-application. <br/>
+</p>
 
 **DEPLOYMENT**
 

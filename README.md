@@ -48,8 +48,8 @@ Deployment using localhost is achieved using the Streamlit run command.
 
 streamlit run "C:\Users\Krishna\Downloads\DISEASE\website.py" 
 
-The above command helps deploy the Streamlit web-app using the localhost.
+The above command helps deploy the Streamlit web-app using the localhost.</p>
 
-_Making the app public-_ Streamlit's Community Cloud and Streamlit Share provide a provision for deploying the app using Streamlit Cloud. The app is deployed on Streamlit Share. The Streamlit Share platform makes use of GitHub repositories. During runtime, the app fetches/pulls the necessary files in order to render the application. The platform instantaneously downloads the libraries that have been utilized in our application. The libraries along with their corresponding versions have been mentioned in the requirements.txt file. 
+<p align="justify"> _Making the app public-_ Streamlit's Community Cloud and Streamlit Share provide a provision for deploying the app using Streamlit Cloud. The app is deployed on Streamlit Share. The Streamlit Share platform makes use of GitHub repositories. During runtime, the app fetches/pulls the necessary files in order to render the application. The platform instantaneously downloads the libraries that have been utilized in our application. The libraries along with their corresponding versions have been mentioned in the requirements.txt file. </p>
 
-**The app is available publicly using the link:** https://chiragradhakrishna43-7-multiple-disease-predict-symptoms-hkn9sw.streamlit.app/</p> 
+**The app is available publicly using the link:** https://chiragradhakrishna43-7-multiple-disease-predict-symptoms-hkn9sw.streamlit.app/

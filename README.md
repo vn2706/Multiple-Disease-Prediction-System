@@ -30,6 +30,11 @@ Three machine learning algorithms have been utilized. They are:
                                                                                                                            
 The symptoms entered are fed as input to each of the aforementioned algorithms. Each symptom select box has been provided with a default entry 'None'. The none input is not passed to the machine learning algorithms.
 
-**SOFTWARE USED:**
+**SOFTWARE USED**
 
 
+**LIBRARIES**
+
+
+
+**DEPLOYMENT**

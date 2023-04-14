@@ -10,16 +10,16 @@ The web-application has been developed using the Streamlit framework. Streamlit 
 
 Installation procedure for Streamlit-
 
-Streamlit can be installed using pip.
+_Streamlit can be installed using pip._
 
                   pip install streamlit
                   pip install streamlit-option-menu
 
-The above commands help install streamlit and streamlit-option-menu. Streamlit requires Python 3.6 or a higher version.
+_The above commands help install streamlit and streamlit-option-menu. Streamlit requires Python 3.6 or a higher version._
 
-Streamlit-option-menu facilitates the design of a multi-web page application and customizing the appearance of the sidebar.
+_Streamlit-option-menu facilitates the design of a multi-web page application and customizing the appearance of the sidebar._
 
-** WORKING SUMMARY **
+**WORKING SUMMARY**
 
 The multiple disease prediction provides a default 5 symptom entry display. It mandates that the user enter atleast 3 symptoms. Repetition of symptoms is not allowed. Additionally, the user can also enter more symptoms by requesting more input/select boxes.
 
@@ -30,6 +30,6 @@ Three machine learning algorithms have been utilized. They are:
                                                                                                                            
 The symptoms entered are fed as input to each of the aforementioned algorithms. Each symptom select box has been provided with a default entry 'None'. The none input is not passed to the machine learning algorithms.
 
-SOFTWARE USED: 
+**SOFTWARE USED: **
 
 

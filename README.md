@@ -44,7 +44,17 @@ The following libraries have been utilized: <br/>
 1. Numpy : For passing symptoms to the machine learning algorithms.<br/>
 2. Pandas: For accessing and working with the datasets.<br/>
 3. Streamlit: To develop the web-application. <br/>
-4. cv2: To render the images on our web-application. <br/>
+4. streamlit_option_menu: Used for designing the option-menu. <br/>
+5. streamlit.components.v1: For rendering html and css code to make our web-app visually appealing.<br/>
+6. cv2: To render the images on our web-application. <br/>
+7. sklearn: Used to import machine learning algorithms for processing symptoms. <br/>
+
+Installation-
+pip install numpy<br/>
+pip install pandas <br/>
+pip install opencv-python<br/>
+pip install scikit-learn
+
 </p>
 
 **DEPLOYMENT**

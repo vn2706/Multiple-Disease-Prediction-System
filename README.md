@@ -48,4 +48,4 @@ Deployment using localhost is achieved using the Streamlit run command.
 
 streamlit run "C:\Users\Krishna\Downloads\DISEASE\website.py" 
 
-The above command helps deploy the Streamlit web-app using the localhost.</p>
+The above command helps deploy the Streamlit web-app using the localhost.</p> 

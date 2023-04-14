@@ -51,10 +51,10 @@ The following libraries have been utilized: <br/>
 
 Installation-
 <br/>
-pip install numpy
-pip install pandas 
-pip install opencv-python
-pip install scikit-learn
+pip install numpy <br/>
+pip install pandas <br/>
+pip install opencv-python<br/>
+pip install scikit-learn<br/>
 
 </p>
 

@@ -21,14 +21,14 @@ _Streamlit-option-menu facilitates the design of a multi-web page application an
 
 **WORKING SUMMARY**
 
-The multiple disease prediction provides a default 5 symptom entry display. It mandates that the user enter atleast 3 symptoms. Repetition of symptoms is not allowed. Additionally, the user can also enter more symptoms by requesting more input/select boxes.
+<p align="justify">The multiple disease prediction provides a default 5 symptom entry display. It mandates that the user enter atleast 3 symptoms. Repetition of symptoms is not allowed. Additionally, the user can also enter more symptoms by requesting more input/select boxes.
 
 Three machine learning algorithms have been utilized. They are:
                                                               1. Decision Tree
                                                               2. Random Forest
                                                               3. Naive Bayes
                                                                                                                            
-The symptoms entered are fed as input to each of the aforementioned algorithms. Each symptom select box has been provided with a default entry 'None'. The none input is not passed to the machine learning algorithms.
+The symptoms entered are fed as input to each of the aforementioned algorithms. Each symptom select box has been provided with a default entry 'None'. The none input is not passed to the machine learning algorithms.</p>
 
 **SOFTWARE USED**
 

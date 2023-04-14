@@ -202,32 +202,99 @@ st.markdown("""
     }
 </style>
 """, unsafe_allow_html=True)
-#---styling for the sidebar---"
-st.markdown(
-    """
-    <style>
-    img {
+#---styling for the hr---"
+hr = """
+<style>
+    .circle {
+        width: 15px;
+        height: 15px;
         border-radius: 50%;
-        max-width: 100%;
-        height: auto;
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
+        display: inline-block;
+        margin: 0 10px;
     }
-    </style>
-    """,
-    unsafe_allow_html=True
-)
+    #circle-1 {
+        background-color:  #FF0000;
+    }
+    #circle-2 {
+        background-color: #808080;
+    }
+    #circle-3 {
+        background-color:#008000;
+    }
+    .circle-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 50px;
+    }
+</style>
+<div class="circle-container">
+    <div class="circle" id="circle-1"></div>
+    <div class="circle" id="circle-2"></div>
+    <div class="circle" id="circle-3"></div>
+</div>
+"""
+#--- CSS style for the expanders---
+style = """
+    .streamlit-expander {
+        border-radius: 10px;
+        border: 1px solid #f0f0f0;
+        padding: 10px;
+        margin-bottom: 10px;
+    }
+
+    .streamlit-expanderHeader {
+        border-radius: 10px 10px 0px 0px;
+        background-color: #E6E6FA;
+        padding: 10px;
+    }
+
+    .streamlit-expanderContent {
+        border-radius: 0px 0px 10px 10px;
+        border-top: none;
+        margin-top: -10px;
+        margin-bottom: 10px;
+        padding: 10px;
+    }
+"""
 
 #------------------------------------------------------------------streamlit framework design-----------------------------------------------------------"
 
 with st.sidebar:
-    selected=option_menu('Disease Prediction',
-                         ['Check your Symptoms','View Diagnosis'],
-                         icons=['person-circle'],
+    selected=option_menu('Menu Options',
+                         ['Home','Check your Symptoms','View Diagnosis'],
+                         icons=['person-circle','file-earmark-medical-fill'],
                          default_index=0)
-    image = cv2.imread('doctor.png')
+    image = cv2.imread('image1.png')
     st.sidebar.image(image, caption="", use_column_width=True)
+#-------------------------------------------------------------------------------------------------------------------------------------------------------
+
+if selected=='Home':
+    st.write("<h1>MULTIPLE DISEASE PREDICTION SYSTEM</h1>", unsafe_allow_html=True)
+    st.info("Welcome to the Multiple Disease Prediction System! Our web-application provides you the oppurtunity to gain an understanding of your symptoms.\n Harness the potential of machine learning algorithms to avoid health issues!!!")
+    st.write(hr ,unsafe_allow_html=True,)
+    st.markdown("<br>", unsafe_allow_html=True)
+    st.subheader("USAGE")
+    st.write("<div style='text-align:left; color:blue; font-size:20px;'>Using our web-app has 4 key steps. Expand each step to view.</div>", unsafe_allow_html=True)
+    st.write("\n")
+    steps = {
+    "STEP 1.": "SYMPTOMS SPECIFICATION \n\n <span style='color: red; font-style: italic'> Specify your symptoms using the symptoms select box.",
+    "STEP 2.": "OBTAIN RESULT \n\n <span style='color: red; font-style: italic'> Activate each result to understand your symptoms.",
+    "STEP 3.": "IDENTIFY POTENTIALLY INFECTED ORGAN \n\n <span style='color: red; font-style: italic'> View the diagnosis to understand which organ could be potentially affected",
+    "STEP 4.": "<span style='color: red; font-style: italic'> If the diagnosis suggests you may have a particular condition, follow up with your doctor. If your symptoms are severe or you have other concerns, seek medical attention immediately."
+    }
+    st.write(f"<style>{style}</style>", unsafe_allow_html=True)
+    for step_title, step_content in steps.items():
+        with st.expander(step_title):
+            st.write(step_content,unsafe_allow_html=True)
+    st.write(hr ,unsafe_allow_html=True)
+    st.markdown("<br>", unsafe_allow_html=True)
+    st.subheader("ACCESS ANYWHERE!")
+    st.write("<div style='text-align:left; color:blue; font-size:20px;'>Access our web-app anywhere, anytime for better health-care & management!!!.</div>", unsafe_allow_html=True)
+    image1 = cv2.imread('C://Users//Krishna//Downloads//image3.jpeg')
+    st.markdown("<br>", unsafe_allow_html=True)
+    st.image(image1, width=800,use_column_width=True)
+#----------------------------------------------------------------------------------------------------------------------------------------------------------
 if selected=='Check your Symptoms':
         
     st.title("Symptoms Checker")
@@ -257,10 +324,10 @@ if selected=='Check your Symptoms':
             randomforest()
         if st.button('RESULT 3 : NB'):
             NB()
-       
+#------------------------------------------------------------------------------------------------------------------------------------------------------------       
 if selected=='View Diagnosis':
     if st.button('View Diagnosis'):
-        img = cv2.imread('hb1.png')
+        img = cv2.imread('image2.png')
         x, y, w, h = (275, 120, 296, 141)  
         cv2.rectangle(img, (x, y), (x+w, y+h), (255, 0, 0), 2)
         st.image(img, caption='Human Body with Infected Organ Highlighted',width=500)

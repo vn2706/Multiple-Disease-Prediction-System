@@ -65,7 +65,7 @@ Deployment using localhost is achieved using the Streamlit run command.
 
 streamlit run "C:\Users\Krishna\Downloads\DISEASE\website.py" 
 
-The above command helps deploy the Streamlit web-app using the localhost.</p>
+The above command helps deploy the Streamlit web-app using the localhost. This command can be executed using the Anaconda prompt.</p>
 
 <p align="justify"> 
 Making the app public- Streamlit's Community Cloud and Streamlit Share provide a provision for deploying the app using Streamlit Cloud. The app is deployed on Streamlit Share. The Streamlit Share platform makes use of GitHub repositories. During runtime, the app fetches/pulls the necessary files in order to render the application. The platform instantaneously downloads the libraries that have been utilized in our application. The libraries along with their corresponding versions have been mentioned in the requirements.txt file. </p>

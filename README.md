@@ -49,7 +49,8 @@ The following libraries have been utilized: <br/>
 6. cv2: To render the images on our web-application. <br/>
 7. sklearn: Used to import machine learning algorithms for processing symptoms. <br/>
 
-Installation-<br/>
+Installation-
+<br/>
 pip install numpy
 pip install pandas 
 pip install opencv-python

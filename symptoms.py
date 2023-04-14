@@ -6,6 +6,8 @@ from streamlit.components.v1 import html
 import cv2
 psymptom=[]
 
+st.set_page_config(page_title="Multiple Disease Prediction System", page_icon=":stethoscope:",layout="wide")
+
 # function to obtain user symptoms
 def get_symptoms1():
     options = sorted(l1)
@@ -291,7 +293,7 @@ if selected=='Home':
     st.markdown("<br>", unsafe_allow_html=True)
     st.subheader("ACCESS ANYWHERE!")
     st.write("<div style='text-align:left; color:blue; font-size:20px;'>Access our web-app anywhere, anytime for better health-care & management!!!.</div>", unsafe_allow_html=True)
-    image1 = cv2.imread('C://Users//Krishna//Downloads//image3.jpeg')
+    image1 = cv2.imread('image3.jpeg')
     st.markdown("<br>", unsafe_allow_html=True)
     st.image(image1, width=800,use_column_width=True)
 #----------------------------------------------------------------------------------------------------------------------------------------------------------

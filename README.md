@@ -32,6 +32,8 @@ The symptoms entered are fed as input to each of the aforementioned algorithms. 
 
 **SOFTWARE USED**
 
+The Spyder IDE has been utilized to write the code for the multiple disease prediction system.
+
 
 **LIBRARIES**
 

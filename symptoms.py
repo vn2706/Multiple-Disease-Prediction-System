@@ -272,7 +272,8 @@ with st.sidebar:
 #-------------------------------------------------------------------------------------------------------------------------------------------------------
 
 if selected=='Home':
-    st.write("<h1>MULTIPLE DISEASE PREDICTION SYSTEM</h1>", unsafe_allow_html=True)
+    #st.write("<h1>MULTIPLE DISEASE PREDICTION SYSTEM</h1>", unsafe_allow_html=True)
+    st.write("<div style='text-align:left; font-size:50px;'>MULTIPLE DISEASE PREDICTION SYSTEM</div>", unsafe_allow_html=True)
     st.info("Welcome to the Multiple Disease Prediction System! Our web-application provides you the oppurtunity to gain an understanding of your symptoms.\n Harness the potential of machine learning algorithms to avoid health issues!!!")
     st.write(hr ,unsafe_allow_html=True,)
     st.markdown("<br>", unsafe_allow_html=True)

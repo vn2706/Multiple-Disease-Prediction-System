@@ -375,7 +375,7 @@ if selected=='View Diagnosis':
                 img = cv2.imread('image21.jpg')
                 cv2.rectangle(img, (x, y), (x+w, y+h), (255, 0, 0),8)
                 st.image(img, caption='Human Body with Infected Organ Highlighted',width=1000)
-            if org in toporgan:
+            elif org in toporgan:
                 x,y,w,h= toporgan[org]
                 img = cv2.imread('image31.jpg')
                 cv2.rectangle(img, (x, y), (x+w, y+h), (255, 0, 0),8)

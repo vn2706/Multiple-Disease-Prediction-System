@@ -4,6 +4,7 @@ import streamlit as st
 from streamlit_option_menu import option_menu
 from streamlit.components.v1 import html
 import cv2
+
 psymptom=[]
 
 st.set_page_config(page_title="Multiple Disease Prediction System", page_icon=":stethoscope:",layout="wide")
@@ -22,7 +23,7 @@ def get_symptoms1():
     if answer == "Yes":
         symptom = st.text_input("Enter number of symptms:",1)
         for i in range(int(symptom)):
-            symptomn = st.selectbox('What are you experiencing',options,i)
+            symptomn = st.selectbox('What are you experiencing',options,key=i+6)
             symptoms.append(symptomn)
     if answer == "No":
         symptoms = symptoms[:5]
@@ -54,11 +55,13 @@ def DecisionTree():
             break
     if (h=='yes'):
         result=disease[a]
-        st.success(result)
+        organ = result
+        return organ
         
     else:
         result="You seem to be healthy. Take Care!"
-        st.success(result)
+        organ = result
+        return organ
         
 def randomforest():
     from sklearn.ensemble import RandomForestClassifier
@@ -180,6 +183,7 @@ np.ravel(y_test)
 
 result=""
 
+state = st.session_state
 #---------------------------------------------------------------------------CSS Code-------------------------------------------------------------------
 #---styling for buttons---"
 st.markdown("""
@@ -236,7 +240,7 @@ hr = """
     <div class="circle" id="circle-3"></div>
 </div>
 """
-#--- CSS style for the expanders---
+# CSS style for the expanders
 style = """
     .streamlit-expander {
         border-radius: 10px;
@@ -259,8 +263,7 @@ style = """
         padding: 10px;
     }
 """
-
-#------------------------------------------------------------------streamlit framework design-----------------------------------------------------------"
+#------------------------------------------------------------------streamlit framework design-----------------------------------------------------------
 
 with st.sidebar:
     selected=option_menu('Menu Options',
@@ -297,7 +300,8 @@ if selected=='Home':
     image1 = cv2.imread('image3.jpeg')
     st.markdown("<br>", unsafe_allow_html=True)
     st.image(image1, width=800,use_column_width=True)
-#----------------------------------------------------------------------------------------------------------------------------------------------------------
+#---------------------------------------------------------------------------------------------------------------------------------------------------------- 
+               
 if selected=='Check your Symptoms':
         
     st.title("Symptoms Checker")
@@ -322,15 +326,60 @@ if selected=='Check your Symptoms':
     else:
     
         if st.button('RESULT 1 : DT'):
-            DecisionTree()
+           value=DecisionTree()
+           st.success(value)
+           state.input_data = value
         if st.button('RESULT 2 : RF'):
             randomforest()
         if st.button('RESULT 3 : NB'):
             NB()
-#-------------------------------------------------------------------------------------------------------------------------------------------------------------       
+#------------------------------------------------------------------------------------------------------------------------------------------------------------  
+    
 if selected=='View Diagnosis':
-    if st.button('View Diagnosis'):
-        img = cv2.imread('image2.png')
-        x, y, w, h = (275, 120, 296, 141)  
-        cv2.rectangle(img, (x, y), (x+w, y+h), (255, 0, 0), 2)
-        st.image(img, caption='Human Body with Infected Organ Highlighted',width=500)
+    if 'input_data' not in st.session_state:
+        st.warning('It looks like you have not checked your symptoms yet. Please check your symptoms in order to view the diagnosis.')
+    else:
+        org = state.input_data
+        st.success(org)
+        organs = {
+        'Common Cold': (1700, 0, 350, 350),
+        'Heartattack': (1300, 1400, 350, 350),
+        'Hypertension': (1300, 1400, 350, 350),
+        'Pneumonia': (900, 900, 1100, 1100),
+        'Tuberculosis':(900, 900, 1100, 1100),
+        'Hypothyroidism':(1300, 700, 200, 200),
+        'Hyperthyroidism':(1300, 700, 200, 200),
+        'Diabetes':(900, 1900, 500, 500),
+        'Malaria':(900, 1900, 500, 500),
+        'Bronchial Asthma':(900, 1900, 1100, 1100),
+        'Jaundice':(900, 1900, 500, 500),
+        'Gastroenteritis':(1100,2700,500,500),
+        'hepatitis A':(800, 1900, 900, 300),
+        'Peptic ulcer diseae':(1600,2150,200,100),
+        'Chronic cholestasis':(800, 1900, 900, 300),
+        'Alcoholic hepatitis':(800, 1900, 900, 300),
+        'Hepatitis B':(800, 1900, 900, 300),
+        'Hepatitis C':(800, 1900, 900, 300),
+        'Hepatitis D':(800,1900,900,300),
+        'Hepatitis E':(800,1900,900,300)
+        }
+        toporgan = {
+            'Paralysis (brain hemorrhage)':(200,100,75,75),
+            'Migraine':(100,100,50,50),
+            'Cervical spondylosis':(200,300,100,100)
+            }
+        #org = st.text_input('Enter obtained result to view diagnosis') provision for manual user entry
+        if st.button('View Diagnosis'):
+            if org in organs:
+                x,y,w,h= organs[org]
+                img = cv2.imread('image21.jpg')
+                cv2.rectangle(img, (x, y), (x+w, y+h), (255, 0, 0),8)
+                st.image(img, caption='Human Body with Infected Organ Highlighted',width=1000)
+            if org in toporgan:
+                x,y,w,h= toporgan[org]
+                img = cv2.imread('image31.jpg')
+                cv2.rectangle(img, (x, y), (x+w, y+h), (255, 0, 0),8)
+                st.image(img, caption='Human Body with Infected Organ Highlighted',width=1000)
+                
+            else:
+                st.write('Diagnosis not available')

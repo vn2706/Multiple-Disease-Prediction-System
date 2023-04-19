@@ -340,6 +340,7 @@ if selected=='View Diagnosis':
         st.warning('It looks like you have not checked your symptoms yet. Please check your symptoms in order to view the diagnosis.')
     else:
         org = state.input_data
+        st.info("Based on the symptoms you have entered, you might be experiencing:")
         st.success(org)
         organs = {
         'Common Cold': (1700, 0, 350, 350),

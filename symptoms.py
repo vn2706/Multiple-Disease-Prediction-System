@@ -21,13 +21,14 @@ def get_symptoms1():
     
     answer = st.radio("Would you like to enter more symptoms?",("Yes","No"),index = 1)
     if answer == "Yes":
-        symptom = st.text_input("Enter number of symptoms:",1)
+        symptom = st.text_input("Enter number of symptms:",1)
         for i in range(int(symptom)):
             symptomn = st.selectbox('What are you experiencing',options,key=i+6)
             symptoms.append(symptomn)
     if answer == "No":
         symptoms = symptoms[:5]
     return symptoms
+
 #-----------------------------------------------------------functions to deploy machine learning models and incorporation into Streamlit framework----------
 def DecisionTree():
     from sklearn import tree
@@ -89,11 +90,12 @@ def randomforest():
              break
     if (h=='yes'):
          result=disease[a]
-         st.success(result)
-         
+         organ = result
+         return organ
     else:
-         result="Not found"
-         st.success(result)
+         result="You seem to be healthy. Take Care!"
+         organ = result
+         return organ
          
 def NB():
     from sklearn.naive_bayes import GaussianNB
@@ -120,17 +122,19 @@ def NB():
             break
     if (h=='yes'):
         result=disease[a]
-        st.success(result)
+        organ = result
+        return organ
     else:
-        result="Not found"
-        st.success(result)
+        result="You seem to be healthy. Take Care!"
+        organ = result
+        return organ
         
 # ----------------------------------------------------------end of function block---------------------------------------------------------------------------
 
 # list of symptoms
 l1=['None','itching', 'skin_rash', 'nodal_skin_eruptions', 'continuous_sneezing', 'shivering', 'chills', 'joint_pain', 'acidity', 'ulcers_on_tongue', 'muscle_wasting', 'burning_micturition', 'spotting_ urination', 'fatigue', 'weight_gain', 'anxiety', 'cold_hands_and_feets', 'mood_swings', 'weight_loss',
 'restlessness', 'lethargy', 'patches_in_throat', 'irregular_sugar_level', 'cough', 'high_fever', 'sunken_eyes', 'breathlessness', 'sweating', 'dehydration', 'indigestion', 'headache', 'yellowish_skin',
-'dark_urine', 'nausea', 'loss_of_appetite', 'pain_behind_the_eyes', 'back_pain', 'constipation', 'abdominal_pain', 'diarrhoea', 'mild_fever', 'yellow_urine', 'yellowing_of_eyes', 'acute_liver_failure',
+'dark_urine', 'nausea', 'loss_of_appetite', 'pain_behind_the_eyes', 'back_pain', 'constipation', 'abdominal_pain', 'diarrhoea', 'mild_fever', 'yellow_urine', 'yellowing_of_eyes', 'acute_liver_failure','vomiting',
 'fluid_overload', 'swelling_of_stomach', 'swelled_lymph_nodes', 'malaise', 'blurred_and_distorted_vision', 'phlegm', 'throat_irritation', 'redness_of_eyes', 'sinus_pressure', 'runny_nose', 'congestion', 'chest_pain', 'weakness_in_limbs', 'fast_heart_rate', 'pain_during_bowel_movements', 'pain_in_anal_region', 'bloody_stool', 'irritation_in_anus', 'neck_pain', 'dizziness', 'cramps', 'bruising', 'obesity', 'swollen_legs', 'swollen_blood_vessels', 'puffy_face_and_eyes', 'enlarged_thyroid', 'brittle_nails', 'swollen_extremeties', 'excessive_hunger', 'extra_marital_contacts', 'drying_and_tingling_lips', 'slurred_speech', 'knee_pain', 'hip_joint_pain', 'muscle_weakness', 'stiff_neck', 'swelling_joints', 'movement_stiffness', 'spinning_movements', 'loss_of_balance', 'unsteadiness', 'weakness_of_one_body_side', 'loss_of_smell', 'bladder_discomfort', 'foul_smell_of urine', 'continuous_feel_of_urine', 'passage_of_gases', 'internal_itching', 'toxic_look_(typhos)', 'depression', 'irritability', 'muscle_pain', 'altered_sensorium', 'red_spots_over_body', 'belly_pain', 'abnormal_menstruation', 'dischromic _patches', 'watering_from_eyes', 'increased_appetite', 'polyuria', 'family_history', 'mucoid_sputum', 'rusty_sputum', 'lack_of_concentration', 'visual_disturbances', 'receiving_blood_transfusion', 'receiving_unsterile_injections', 'coma', 'stomach_bleeding', 'distention_of_abdomen', 'history_of_alcohol_consumption', 'fluid_overload', 'blood_in_sputum', 'prominent_veins_on_calf', 'palpitations', 'painful_walking', 'pus_filled_pimples', 'blackheads', 'scurring', 'skin_peeling', 'silver_like_dusting', 'small_dents_in_nails', 'inflammatory_nails', 'blister', 'red_sore_around_nose', 'yellow_crust_ooze']
 
 # disease list
@@ -317,7 +321,7 @@ if selected=='Check your Symptoms':
     print(psymptom)
     
     if len(psymptom) < 1:
-        st.warning(' No symptoms have been selected. To proceed, please select accordingly')
+        st.warning(' No symptoms have been selcted. To proceed, please select accordingly')
         
     if len(psymptom)<3:
         st.warning("Please enter at least 3 symptoms.")
@@ -330,9 +334,13 @@ if selected=='Check your Symptoms':
            st.success(value)
            state.input_data = value
         if st.button('RESULT 2 : RF'):
-            randomforest()
+            value1 = randomforest()
+            st.success(value1)
         if st.button('RESULT 3 : NB'):
-            NB()
+            value2 = NB()
+            st.success(value2)
+            
+    
 #------------------------------------------------------------------------------------------------------------------------------------------------------------  
     
 if selected=='View Diagnosis':
@@ -362,12 +370,24 @@ if selected=='View Diagnosis':
         'Hepatitis B':(800, 1900, 900, 300),
         'Hepatitis C':(800, 1900, 900, 300),
         'Hepatitis D':(800,1900,900,300),
-        'Hepatitis E':(800,1900,900,300)
+        'Hepatitis E':(800,1900,900,300),
+        'Dengue':(850,1900,811,396),
+        'GERD':(1500,2000,318,314),
+        'Typhoid':(1100,2700,500,500)
         }
         toporgan = {
             'Paralysis (brain hemorrhage)':(200,100,75,75),
             'Migraine':(100,100,50,50),
-            'Cervical spondylosis':(200,300,100,100)
+            'Cervical spondylosis':(200,300,100,100),
+            '(vertigo) Paroymsal  Positional Vertigo':(180,170,60,77),
+            'Hypoglycemia':(200,100,75,75)
+            }
+        bottomorgan = {
+            'Varicoseveins':(400,750,752,990),
+            'Arthritis':(400,1000,834,228),
+            'Osteoarthristis':(400,1000,219,354),
+            'Urinary tract infection':(670,300,219,254),
+            'Dimorphic hemmorhoids(piles)':(670,300,219,254)
             }
         #org = st.text_input('Enter obtained result to view diagnosis') provision for manual user entry
         if st.button('View Diagnosis'):
@@ -381,6 +401,10 @@ if selected=='View Diagnosis':
                 img = cv2.imread('image31.jpg')
                 cv2.rectangle(img, (x, y), (x+w, y+h), (255, 0, 0),8)
                 st.image(img, caption='Human Body with Infected Organ Highlighted',use_column_width=True)
-                
+            elif org in bottomorgan:
+                x,y,w,h= bottomorgan[org]
+                img = cv2.imread('image41.jpg')
+                cv2.rectangle(img, (x, y), (x+w, y+h), (255, 0, 0),8)
+                st.image(img, caption='Human Body with Infected Organ Highlighted',use_column_width=True)
             else:
                 st.write('Diagnosis not available')

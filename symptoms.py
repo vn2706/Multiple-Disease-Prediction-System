@@ -317,7 +317,7 @@ if selected=='Check your Symptoms':
     print(psymptom)
     
     if len(psymptom) < 1:
-        st.warning(' No symptoms have been selcted. To proceed, please select accordingly')
+        st.warning(' No symptoms have been selected. To proceed, please select accordingly')
         
     if len(psymptom)<3:
         st.warning("Please enter at least 3 symptoms.")

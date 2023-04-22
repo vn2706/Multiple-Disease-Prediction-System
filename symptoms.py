@@ -21,7 +21,7 @@ def get_symptoms1():
     
     answer = st.radio("Would you like to enter more symptoms?",("Yes","No"),index = 1)
     if answer == "Yes":
-        symptom = st.text_input("Enter number of symptms:",1)
+        symptom = st.text_input("Enter number of symptoms:",1)
         for i in range(int(symptom)):
             symptomn = st.selectbox('What are you experiencing',options,key=i+6)
             symptoms.append(symptomn)
